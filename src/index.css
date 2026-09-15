@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Subtle Minecraft grid & glow utilities */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15), transparent 70%);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.25);
+}
+
+.glow-emerald-strong {
+  box-shadow: 0 0 60px -5px rgba(16, 185, 129, 0.4);
+}
+
+/* Legal Document Prose Styling */
+.legal-markdown {
+  color: #cbd5e1;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.legal-markdown h1 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  letter-spacing: -0.02em;
+}
+
+.legal-markdown h2 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legal-markdown h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1rem;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.legal-markdown h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-markdown p {
+  margin-bottom: 1.15rem;
+  color: #94a3b8;
+}
+
+.legal-markdown strong {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.legal-markdown ul, .legal-markdown ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.legal-markdown ul {
+  list-style-type: disc;
+}
+
+.legal-markdown ol {
+  list-style-type: decimal;
+}
+
+.legal-markdown li {
+  margin-bottom: 0.4rem;
+  color: #cbd5e1;
+}
+
+.legal-markdown blockquote {
+  border-left: 3px solid #10b981;
+  background: rgba(16, 185, 129, 0.06);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.25rem 0;
+  color: #e2e8f0;
+  font-style: italic;
+}
+
+.legal-markdown code {
+  font-family: 'JetBrains Mono', monospace;
+  background: #1e293b;
+  color: #34d399;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.35rem;
+  font-size: 0.85em;
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.legal-markdown pre {
+  background: #0b0f19;
+  border: 1px solid #1e293b;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.legal-markdown pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: #f1f5f9;
+}
+
+.legal-markdown hr {
+  border-color: #1e293b;
+  margin: 2rem 0;
+}
+
+.legal-markdown a {
+  color: #34d399;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-markdown a:hover {
+  color: #6ee7b7;
+}
+
+.legal-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.legal-markdown th, .legal-markdown td {
+  border: 1px solid #334155;
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+}
+
+.legal-markdown th {
+  background: #1e293b;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.legal-markdown tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.6);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "EREX - Minecraft Server Hosting",
+  "description": "Next-generation Minecraft server hosting with instant setup, ultra-low latency, and full control via the EREX Android app.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
