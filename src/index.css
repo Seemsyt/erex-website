@@ -34,6 +34,20 @@
   box-shadow: 0 0 60px -5px rgba(16, 185, 129, 0.4);
 }
 
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Legal Document Prose Styling */
 .legal-markdown {
   color: #cbd5e1;

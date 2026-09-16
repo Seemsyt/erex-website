@@ -61,11 +61,12 @@ export default function Navbar({ onOpenLegal, onOpenPricing }: NavbarProps) {
         >
           <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-600 to-teal-800 p-0.5 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300">
             <div className="w-full h-full bg-[#0d121c] rounded-[10px] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors" />
-              {/* Isometric Minecraft cube icon */}
-              <div className="relative w-5 h-5 flex items-center justify-center font-mono font-black text-emerald-400 text-sm tracking-tighter">
-                ⛏
-              </div>
+              <img
+                src="https://raw.githubusercontent.com/Seemsyt/EREX-Releases/main/screen.png"
+                alt="EREX Official Logo"
+                className="w-full h-full object-cover rounded-[9px]"
+                loading="eager"
+              />
             </div>
           </div>
           <div>

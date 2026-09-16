@@ -77,9 +77,12 @@ export default function Footer({ onOpenLegal, onOpenPricing }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center font-bold text-emerald-400 text-sm">
-                ⛏
-              </div>
+              <img
+                src="https://raw.githubusercontent.com/Seemsyt/EREX-Releases/main/screen.png"
+                alt="EREX Logo"
+                className="w-8 h-8 rounded-lg object-cover border border-emerald-500/40 shadow-sm"
+                loading="lazy"
+              />
               <span className="font-display font-black text-xl text-white">EREX</span>
               <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
                 HOSTING

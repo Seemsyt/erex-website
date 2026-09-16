@@ -1,21 +1,12 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
-import gsap from 'gsap';
-import { Download, Smartphone, Play, Zap, ShieldCheck, Terminal, Users, Cpu, Activity, ArrowRight, CheckCircle2, Server } from 'lucide-react';
-import { ANDROID_APK_URL, APK_VERSION, APK_FILE_SIZE } from '../data';
+import { useEffect, useState, type FormEvent } from 'react';
+import { Download, Smartphone, Zap, ShieldCheck, Terminal, Users, Cpu, Activity, CheckCircle2, Server } from 'lucide-react';
+import { ANDROID_APK_URL, APK_VERSION } from '../data';
 
 interface HeroProps {
   onOpenPricing?: () => void;
 }
 
 export default function Hero({ onOpenPricing }: HeroProps) {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaGroupRef = useRef<HTMLDivElement>(null);
-  const badgesRef = useRef<HTMLDivElement>(null);
-  const consoleCardRef = useRef<HTMLDivElement>(null);
-  const floatingBlockRef = useRef<HTMLDivElement>(null);
-
   // Interactive console state
   const [commandInput, setCommandInput] = useState('');
   const [consoleLogs, setConsoleLogs] = useState<Array<{ text: string; type: 'info' | 'warn' | 'success' | 'cmd' }>>([
@@ -30,57 +21,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
 
   const [tps, setTps] = useState(20.0);
   const [activePlayers, setActivePlayers] = useState(24);
-
-  // Run GSAP entrance animation on mount
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-      tl.fromTo(
-        badgesRef.current,
-        { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, delay: 0.2 }
-      )
-        .fromTo(
-          titleRef.current,
-          { y: 35, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9 },
-          '-=0.5'
-        )
-        .fromTo(
-          subtitleRef.current,
-          { y: 25, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          '-=0.6'
-        )
-        .fromTo(
-          ctaGroupRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          '-=0.5'
-        )
-        .fromTo(
-          consoleCardRef.current,
-          { scale: 0.94, y: 40, opacity: 0 },
-          { scale: 1, y: 0, opacity: 1, duration: 1, ease: 'expo.out' },
-          '-=0.6'
-        );
-
-      // Continuous floating animation for the decorative block
-      if (floatingBlockRef.current) {
-        gsap.to(floatingBlockRef.current, {
-          y: -12,
-          rotation: 3,
-          duration: 3.5,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-      }
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
 
   // Periodic random console heartbeat
   useEffect(() => {
@@ -133,7 +73,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
 
   return (
     <section
-      ref={heroRef}
       id="hero-section"
       className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center overflow-hidden bg-radial-gradient bg-grid-pattern"
     >
@@ -144,7 +83,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
       <div className="max-w-7xl mx-auto w-full">
         {/* Top Announcements & Badges */}
         <div
-          ref={badgesRef}
           className="flex flex-wrap items-center justify-center gap-3 mb-6"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-semibold shadow-lg shadow-emerald-950/50">
@@ -165,7 +103,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
         {/* Main Title & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           <h1
-            ref={titleRef}
             className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6"
           >
             Cheap Minecraft Servers.{' '}
@@ -175,7 +112,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
           </h1>
 
           <p
-            ref={subtitleRef}
             className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-8"
           >
             Stop wasting <span className="line-through text-red-400 font-semibold">$15/month</span> for a laggy 4GB server with slow ticks and stuttering chunk loading. Choose <strong className="text-emerald-300 font-bold">EREX for just $10/month</strong> for an ultra-smooth 20.0 TPS server hosted on high-performance <strong className="text-white font-semibold">AWS EC2, Hetzner & Contabo</strong> nodes — with complete live management on the official <strong className="text-emerald-300 font-semibold">EREX Android App</strong>.
@@ -183,7 +119,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
 
           {/* Action CTAs - Focused on App Download & Plan Comparison */}
           <div
-            ref={ctaGroupRef}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none"
           >
             {/* Primary Android APK Direct Download */}
@@ -273,7 +208,6 @@ export default function Hero({ onOpenPricing }: HeroProps) {
 
         {/* Live Interactive Interactive Node & Terminal Dashboard Mockup */}
         <div
-          ref={consoleCardRef}
           className="relative max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[#0b0f19]/90 border border-emerald-500/20 shadow-2xl shadow-black/80 overflow-hidden glow-emerald"
         >
           {/* Top Node Bar */}
@@ -396,8 +330,7 @@ export default function Hero({ onOpenPricing }: HeroProps) {
 
         {/* Floating decorative element */}
         <div
-          ref={floatingBlockRef}
-          className="hidden lg:block absolute -bottom-10 -right-6 pointer-events-none opacity-40 z-0"
+          className="hidden lg:block absolute -bottom-10 -right-6 pointer-events-none opacity-40 z-0 animate-float-slow"
         >
           <div className="w-32 h-32 rounded-3xl bg-gradient-to-tr from-emerald-600/30 to-teal-400/20 border border-emerald-500/30 blur-sm" />
         </div>
